@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Carousel } from './carousel-sc';
+import { FillerDiv } from './filler-div';
+import { MAIN_ID } from './carousel-sc/constants';
 
 function App() {
+  const fillerDivs = [];
+
+  for (let i = 1; i < 10; i++) {
+    fillerDivs.push(<FillerDiv text={i} />);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div id={MAIN_ID}>
+        {fillerDivs}
+        <Carousel />
+        {fillerDivs}
+        {fillerDivs}
+      </div>
     </div>
   );
 }
